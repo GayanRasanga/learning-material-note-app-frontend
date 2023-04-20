@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import NavBar from "./components/navbar/NavBar.js";
+import { Route, Routes } from "react-router-dom";
+import Forms from "./components/form/Form.js";
+import View from "./pages/View.js";
+import EditMpdel from "./components/editmodel/EditMpdel.js";
+import Loging from "./pages/Loging/Loging.js";
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<Loging />} />
+        <Route path='/add' element={<Forms />} />
+        <Route path='/view' element={<View />} />
+        <Route path='/edit/:id' element={<EditMpdel />} />
+      </Routes>
     </div>
   );
 }
-
-export default App;
