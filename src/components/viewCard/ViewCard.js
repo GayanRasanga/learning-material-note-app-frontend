@@ -36,25 +36,23 @@ export default function ViewCard(props) {
     })
     
   }
-    
 
-
-  const handleDownload = async (id,filename) => {
-    console.log(id,filename)
-    try {
-      const response = await fetch(`http://localhost:8082/download/${id}`);
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(new Blob([blob]));
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', filename);
-      document.body.appendChild(link);
-      link.click();
-      link.parentNode.removeChild(link);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleDownload = async (id,filename) => {
+  //   console.log(id,filename)
+  //   try {
+  //     const response = await fetch(`http://localhost:8082/download/${id}`);
+  //     const blob = await response.blob();
+  //     const url = window.URL.createObjectURL(new Blob([blob]));
+  //     const link = document.createElement('a');
+  //     link.href = url;
+  //     link.setAttribute('download', filename);
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     link.parentNode.removeChild(link);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const date = props.date;
   const localDate = new Date(date).toLocaleString();
@@ -69,9 +67,7 @@ export default function ViewCard(props) {
               return (
                 <div key={index} className="attach">
                   <div className="attachicon">
-                  <Link  onClick={()=>handleDownload(a.did,a.dname)} >
-                  <CloudDownloadIcon fontSize="5px" />
-                  </Link>
+                  <CloudDownloadIcon  fontSize="5px" />
                   <DeleteIcon fontSize="5px" />
                   <EditSharpIcon fontSize="5px"/>
                   <VisibilitySharpIcon fontSize="5px"/>

@@ -6,9 +6,6 @@ import ViewCard from "../components/viewCard/ViewCard";
 export default function View() {
   // const [pages, setPage] = useState(0);
   const [content, setContent] = useState([]);
-  
-
-
   const fetchNots = async () => {
     fetch('http://localhost:8082/getNotes')
     .then((response) => response.json())
